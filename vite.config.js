@@ -5,7 +5,7 @@ import * as process from "process";
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    port: +process.env.NODE_PORT,
+    port: +process.env.NODE_PORT || 3000,
   },
   plugins: [react()],
 })
