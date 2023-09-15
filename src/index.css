@@ -204,6 +204,7 @@ body{
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  color:black;
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -680,6 +681,8 @@ body{
 .opacity-0 {
   opacity: 0;
 }
+
+
 
 /* a {
   font-weight: 500;

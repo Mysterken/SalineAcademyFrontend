@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import HexagonalProgressbar from "react-hexagonal-progressbar";
+import photodone from "../assets/done.png"
+
 
 // Définition du composant "Level" avec des propriétés (props) badgeImg, stepDone, badge, et defaultValue
 export const Level = ({ badgeImg, stepDone = 0, badge, defaultValue = 0 }) => {
@@ -65,7 +67,7 @@ export const Level = ({ badgeImg, stepDone = 0, badge, defaultValue = 0 }) => {
         color="#F8C647" // La couleur de la ligne de progression
         level={100} // Niveau maximal de la jauge
         location="rightTop|rightBottom|leftBottom|leftTop" // Position de l'image du badge
-        badgeImg={value === 100 ? "/assets/done.png" : badgeImg} // URL de l'image du badge
+        badgeImg={value === 100 ? photodone : badgeImg} // URL de l'image du badge
       />
     </div>
   );

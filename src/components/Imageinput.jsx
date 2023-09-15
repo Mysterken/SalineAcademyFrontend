@@ -1,5 +1,6 @@
 // Importer la fonction useState depuis la bibliothèque React
 import { useState } from "react";
+import Photoprofil from "../assets/photo.png"
 
 // Définir une composante fonctionnelle ImageInput
 const ImageInput = () => {
@@ -63,7 +64,7 @@ const ImageInput = () => {
           {/* Contenu du bouton (une icône d'appareil photo) */}
           <div className="absolute">
             <div className="flex flex-col items-center">
-              <img src="/assets/photo.png" alt="" />
+              <img src={Photoprofil} alt="" /> 
             </div>
           </div>
 

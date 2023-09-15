@@ -1,8 +1,10 @@
 // Importation du composant Profil depuis le chemin spécifié
-import Profil from "../Chart/Profil";
+import Profil from "./Profile.jsx";
 
 // Importation du composant Level depuis le chemin spécifié
-import { Level } from "../Level";
+import { Level } from "./Level.jsx";
+
+import Photoguitare from "../assets/guitare.png"
 
 // Définition de la fonction LeftContent
 function LeftContent() {
@@ -21,12 +23,12 @@ function LeftContent() {
         <div className="flex justify-center w-full">
           <div className="relative w-80 mt-7 flex flex-wrap justify-between">
             {/* Création de plusieurs instances du composant Level pour afficher différents badges */}
-            <Level badge={1} badgeImg={"/assets/guitare.png"} stepDone={10} />
-            <Level badge={2} badgeImg={"/assets/guitare.png"} stepDone={10} />
-            <Level badge={3} badgeImg={"/assets/guitare.png"} stepDone={10} />
-            <Level badge={4} badgeImg={"/assets/guitare.png"} stepDone={10} />
-            <Level badge={5} badgeImg={"/assets/guitare.png"} stepDone={10} />
-            <Level badge={6} badgeImg={"/assets/guitare.png"} stepDone={10} />
+            <Level badge={1} badgeImg={Photoguitare} stepDone={10} />
+            <Level badge={2} badgeImg={Photoguitare} stepDone={10} />
+            <Level badge={3} badgeImg={Photoguitare} stepDone={10} />
+            <Level badge={4} badgeImg={Photoguitare} stepDone={10} />
+            <Level badge={5} badgeImg={Photoguitare} stepDone={10} />
+            <Level badge={6} badgeImg={Photoguitare} stepDone={10} />
           </div>
         </div>
       </div>

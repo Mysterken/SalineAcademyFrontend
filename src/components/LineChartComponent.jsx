@@ -30,7 +30,7 @@ import {
         return (
           <div className="custom-tooltip" style={{backgroundColor:"white", paddingLeft:"2px",paddingRight:"2px",fontSize:"10px"}}>
             <h3 style={{}}>Progression</h3>
-            <h4 className="label">{`${label} : `}<span style={{fontSize:"15px", color:"#161D3D"}}>{`${payload[0].value}`}</span></h4>
+            <h4 className="label">{`${label} : `}<span style={{fontSize:"15px", color:"#000000"}}>{`${payload[0].value}`}</span></h4>
             {/* Personnalise le contenu de l'info-bulle ici */}
           </div>
         );

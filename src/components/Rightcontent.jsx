@@ -1,44 +1,50 @@
 import { useState } from "react";
+import Cardaccomplishement from "../assets/Card-accomplishement.png"
+import Group324 from "../assets/Group 324.png"
+import Card2 from "../assets/Card-accomplishement (1).png"
+import Haut from "../assets/haut.svg"
+import Bas from "../assets/bas.svg"
+
 
 function RigthContent() {
   const descriptions = [
     {
-      linkImg: "/assets/Card-accomplishement.png",
+      linkImg: Cardaccomplishement,
       title: "Guitare débutant",
       date: "(Obtention le 02/07/2022)",
       detail:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nulla lacinia, Lorem ipsum dolor sit amet,consectetur adipiscing elit. Sed vitae nulla lacinia, Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
     {
-      linkImg: "/assets/Group 324.png",
+      linkImg: Group324,
       title: "20 Cours suivis",
       date: "(Obtention le 02/07/2022)",
       detail:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nulla lacinia, Lorem ipsum dolor sit amet,consectetur adipiscing elit. Sed vitae nulla lacinia, Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
     {
-      linkImg: "/assets/Card-accomplishement (1).png",
+      linkImg: Card2,
       title: "Guitare Intermédiaire",
       date: "(Obtention le 02/07/2022)",
       detail:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nulla lacinia, Lorem ipsum dolor sit amet,consectetur adipiscing elit. Sed vitae nulla lacinia, Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
     {
-      linkImg: "/assets/Card-accomplishement (1).png",
+      linkImg: Card2,
       title: "Guitare Intermédiaire",
       date: "(Obtention le 02/07/2022)",
       detail:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nulla lacinia, Lorem ipsum dolor sit amet,consectetur adipiscing elit. Sed vitae nulla lacinia, Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
     {
-      linkImg: "/assets/Card-accomplishement (1).png",
+      linkImg: Card2,
       title: "Guitare Intermédiaire",
       date: "(Obtention le 02/07/2022)",
       detail:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nulla lacinia, Lorem ipsum dolor sit amet,consectetur adipiscing elit. Sed vitae nulla lacinia, Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
     {
-      linkImg: "/assets/Card-accomplishement (1).png",
+      linkImg: Card2,
       title: "Guitare Intermédiaire",
       date: "(Obtention le 02/07/2022)",
       detail:
@@ -81,7 +87,7 @@ function RigthContent() {
       </div>
       <div className="flex justify-center items-center mt-[-4rem] mb-10">
         <div className="cursor rounded-full bg-[#252529] flex justify-center items-center w-14 h-14 text-white" onClick={showMore}>
-          {showMoreData > 4 ? <img className="w-8 " src="/assets/haut.svg" alt="" /> : <img className="w-8" src="/assets/bas.svg" alt="" />}
+          {showMoreData > 4 ? <img className="w-8 " src={Haut} alt="" /> : <img className="w-8" src={Bas} alt="" />}
         </div>
       </div>
     </div>

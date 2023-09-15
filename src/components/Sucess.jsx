@@ -1,27 +1,31 @@
+import Cardaccomplishement from "../assets/Card-accomplishement.png"
+import Group324 from "../assets/Group 324.png"
+import Card2 from "../assets/Card-accomplishement (1).png"
+
 // Définition d'une liste d'objets représentant des images et leurs titres
 const imgList = [
     {
-      link: "/assets/Card-accomplishement.png",
+      link: Cardaccomplishement,
       title: "Badge guitare",
     },
     {
-      link: "/assets/Group 324.png",
+      link: Group324,
       title: "Suivis régulier expert",
     },
     {
-      link: "/assets/Card-accomplishement (1).png",
+      link: Card2,
       title: "Badge expert guitare",
     },
     {
-      link: "/assets/Card-accomplishement.png",
+      link: Cardaccomplishement,
       title: "Le gratteur fou",
     },
     {
-      link: "/assets/Group 324.png",
+      link: Group324,
       title: "Suivis régulier",
     },
     {
-      link: "/assets/Card-accomplishement (1).png",
+      link: Card2,
       title: "Badge expert guitare",
     },
   ];

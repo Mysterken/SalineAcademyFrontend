@@ -1,8 +1,8 @@
-import LeftContent from "./LeftContent"; // Importe le composant LeftContent depuis un fichier local.
+import LeftContent from "./LeftContent.jsx"; // Importe le composant LeftContent depuis un fichier local.
 
-import RigthContent from "./RigthContent"; // Importe le composant RightContent depuis un fichier local.
+import RigthContent from "./Rightcontent.jsx"; // Importe le composant RightContent depuis un fichier local.
 
-import Succes from "./Succes"; // Importe le composant Succes depuis un fichier local.
+import Succes from "./Sucess.jsx"; // Importe le composant Succes depuis un fichier local.
 
 function Container() { // Définit une fonction composant React appelée Container.
   return (
