@@ -1,0 +1,64 @@
+.CTAProfs{
+    text-decoration: none;
+    transition: none;
+    border: none;
+    height: 0;
+    padding: 0;
+    display: block;
+    color: white;
+}
+.CTAProfs:hover{
+    color: white;
+}
+.CTAProfs::before{
+    display: block;
+}
+.CTAProfs::after{
+    display: block;
+}
+.CTAProfs:hover::after{
+    width: 0;
+}
+.containerCard{
+    display: block;
+    width: 210px;
+    transition: transform .5s ease;
+}
+.containerCard:hover{
+    transform: scale(1.2);
+}
+.containerCardEnseignants{
+    transition: transform .5s ease;
+}
+.containerCardEnseignants img{
+    height: 258px;
+    transition: transform .5s ease;
+}
+.containerCardEnseignants img:hover{
+    height: 387px;
+}
+.containerCardEnseignants > img{
+    display: block;
+    margin: auto; 
+    opacity: 0.4;
+}
+.containerCardEnseignants > img:hover{
+    opacity: 1;
+}
+.containerNameProf{
+    width: 210px;
+    display: block;
+    text-align: center;
+    visibility: hidden;
+}
+.titreName {
+    font-size: 20px;
+    display: block;
+    margin: 10px auto;
+}
+.CTAProfs:hover > .containerCard > .containerNameProf{
+    visibility: visible;
+    width: 258px;
+    display: block;
+    margin: auto;
+}
