@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Connexioncss.css';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -7,45 +8,50 @@ function LoginPage() {
   const [phone, setPhone] = useState('');
 
   const handleLogin = () => {
-    // Code connexion
+    const userEmail = email;
+    const userPassword = password;
+    if (!userEmail || !userPassword) {
+      // Afficher un message d'erreur à l'utilisateur
+      alert("Veuillez remplir tous les champs.");
+      return;
+  
   };
-
+}
   const handleGoogleLogin = () => {
     // Code connexion via Google
   };
 
   return (
     <div>
-      <h2>Connexion</h2>
+      <h2>CONNEXION</h2>
       <p>Pas encore de compte ?</p>
-      <br></br>
-      <p>S’inscrire en cliquant ici</p>
+      <p className="cliquezici">S’inscrire en cliquant ici</p>
       <input
         type="email"
-        placeholder="Email"
+        placeholder="EMAIL"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
         type="password"
-        placeholder="Mot de passe"
+        placeholder="MOT DE PASSE"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <input
         type="text"
-        placeholder="Nom d'utilisateur"
+        placeholder="NOM D'UTILISATEUR"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
         type="tel"
-        placeholder="Téléphone"
+        placeholder="TÉLÉPHONE"
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
       />
-      <button onClick={handleLogin}>Connexion</button>
-      <button onClick={handleGoogleLogin}>Connexion via Google</button>
+      <button className="login-button" onClick={handleLogin}>CONNEXION</button>
+      <button className="google-button" onClick={handleGoogleLogin}>CONNEXION VIA GOOGLE</button>
     </div>
   );
 }
