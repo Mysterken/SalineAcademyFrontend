@@ -1,0 +1,49 @@
+
+
+.containerCardMetier{
+    width: 25vw;
+    height: 20vh;
+    position: relative;
+}
+.imageMetier{
+    display: block;
+    margin: auto;
+    box-sizing:content-box;
+    opacity: 0.6;
+    border-radius: 8px;
+    width: 270px;
+}
+.containerParagrapheMetier{
+    position: absolute;
+    top: 1%;
+    box-sizing: border-box;
+}
+.containerParagrapheMetier > h4{
+    font-size: 20px; 
+    text-align: center;   
+}
+.containerParagrapheMetier > p{
+    text-align: center;
+    font-size: 16px; 
+    padding: 0 130px;   
+}
+
+@media only screen and (max-width: 500px){
+    
+    .containerImageMetier{
+        width: 50%;
+    }
+    .imageMetier{
+        width: 40vw;
+    }
+    .containerCardMetier{
+        width: 45vw;
+    }
+    .containerCardMetier:nth-last-child(-n + 2){
+         display: none;
+    }
+    .containerParagrapheMetier > p{
+        display: none;
+    }
+}
+
