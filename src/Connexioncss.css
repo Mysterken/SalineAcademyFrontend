@@ -64,6 +64,7 @@ button.google-button {
     background-color: #121216 !important; 
     color: #fff;
     border-color: #5B26F0;
+    border: 1px solid #5B26F0;
   }
 
 .cliquezici {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Connexioncss.css';
+import axios from 'axios';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -8,14 +9,49 @@ function LoginPage() {
   const [phone, setPhone] = useState('');
 
   const handleLogin = () => {
-    const userEmail = email;
-    const userPassword = password;
-    if (!userEmail || !userPassword) {
+    const userData = {
+      "email":email,
+      "password":password,
+      "username":username,
+    };
+    
+    axios.post('/api/register', JSON.stringify(userData), {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+    })
+    .then((response) => {
+      console.log(response);
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log(responseData);
+      } else {
+        if (response.status === 400) {
+          console.error('Erreur de requête :', response.data);
+        } else if (response.status === 401) {
+          console.error('Non autorisé :', response);
+        } else if (response.status === 500) {
+          console.error('Erreur interne du serveur :', response);
+        } else {
+          console.error('Erreur non gérée :', response);
+        }
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      // Gérez les erreurs réseau ici
+      console.error('Erreur lors de la connexion :', error);
+      // Vous pouvez afficher un message d'erreur générique à l'utilisateur ici
+    });
+    
+
+    //if (!userEmail || !userPassword) {
       // Afficher un message d'erreur à l'utilisateur
-      alert("Veuillez remplir tous les champs.");
-      return;
+      //alert("Veuillez remplir tous les champs.");
+     // return;
   
-  };
+  //};//
 }
   const handleGoogleLogin = () => {
     // Code connexion via Google
