@@ -10,17 +10,28 @@ import Footer from './Components/Footer.jsx';
 import CardInformation from './Components/CardInformation.jsx';
 import CardEnseignants from './Components/CardEnseignants.jsx'
 import CardSub from './Components/CardSub.jsx';
+import axios from "axios";
 
 
 function Home() {
 
   const [dataJson, setDataJson] = useState(null);
+  const [getVideosUrl, setGetVideosUrl] = useState([]);
+  fetch('https://localhost/api/lessons')
+    .then(reponse => reponse.json())
+    .then(data => {
+      const getVideosUrl = data['hydra:member'].map(lesson => lesson.videoUrl);
+      setGetVideosUrl(getVideosUrl);
+    })
+    .catch(error => {
+      console.log(error)
+    })
 
     useEffect(()=> {
       fetch('../src/data/data.json')
         .then((reponse) =>{
           if (!reponse.ok){
-            throw new Error("Nous n'avons pas pu importer vos datas ");
+            throw new Error("Nous n'avons pas pu importer vos datas");
           }
           return reponse.json();
         })
@@ -74,8 +85,12 @@ function Home() {
               <a href="#">Voir tout</a>
             </div>
             <div className='containerVideos'>
-              <VideoPlayer width='40vw'/>
-              <VideoPlayer width='40vw'/>
+            {getVideosUrl.slice(0, 2).map((url, index)=> (
+                <VideoPlayer
+                  key={index}
+                  url={url}
+                />
+              ))}
             </div>
           </section>
           <section className="sectionCards">
@@ -128,10 +143,10 @@ function Home() {
           <section className="containerTrends">
             <h3>Trends</h3>
             <div className="containerVideosTrends">
-              {dataVideoPlayer.map((item, index)=> (
+              {getVideosUrl.slice(0, 10).map((url, index)=> (
                 <VideoPlayer
                   key={index}
-                  url={item.linkUrl}
+                  url={url}
                   width='320px'
                   height='180px'
                 />
