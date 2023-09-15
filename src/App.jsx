@@ -1,13 +1,10 @@
-import { useState } from 'react'
-import Decouvrir from './component/decouvrir'
-import "./decouvrir.css"
-import TextWithAnimation from './component/filter'
+import Home from "./pages/home.jsx";
 
 function App() {
 
   return (
     <>
-      <Decouvrir></Decouvrir>
+      <Home/>
     </>
   )
 }
