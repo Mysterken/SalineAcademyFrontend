@@ -1,5 +1,7 @@
 import '../style/index.css'
 
+export {Page}
+
 function Page() {
   return (
     <>
@@ -7,5 +9,3 @@ function Page() {
     </>
   )
 }
-
-export {Page}
