@@ -1,9 +1,7 @@
 import axios from "axios";
 
-const server = "https://localhost"; // todo: use env variable
-
 export async function getData(url) {
-  return axios.get(server + url, {
+  return axios.get(url, {
     headers: {
       "Content-Type": "application/json",
     }
@@ -20,7 +18,7 @@ export async function getData(url) {
 }
 
 export async function postData(url, data) {
-  return axios.post(server + url, data, {
+  return axios.post(url, data, {
     headers: {
       "Content-Type": "application/json",
     }
@@ -37,7 +35,7 @@ export async function postData(url, data) {
 }
 
 export async function putData(url, data) {
-  return axios.put(server + url, data, {
+  return axios.put(url, data, {
     headers: {
       "Content-Type": "application/json",
     }
@@ -54,7 +52,7 @@ export async function putData(url, data) {
 }
 
 export async function deleteData(url) {
-  return axios.delete(server + url, {
+  return axios.delete(url, {
     headers: {
       "Content-Type": "application/json",
     }
@@ -71,7 +69,7 @@ export async function deleteData(url) {
 }
 
 export async function patchData(url, data) {
-  return axios.patch(server + url, data, {
+  return axios.patch(url, data, {
     headers: {
       "Content-Type": "application/json",
     }
