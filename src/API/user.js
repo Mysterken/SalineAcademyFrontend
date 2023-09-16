@@ -108,3 +108,12 @@ export async function patchUser(id, data) {
   }
   return res;
 }
+
+export function checkLoggedIn() {
+  const token = localStorage.getItem("token");
+  if (token) {
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    return payload.roles.includes("ROLE_USER");
+  }
+  return false
+}
