@@ -44,7 +44,9 @@ export default function Navbar() {
             </Typography>
           </Box>
         </Box>
-        <Person sx={{fill: "black", marginLeft: "auto"}}/>
+        <a href="/account" style={{marginLeft: "auto"}}>
+          <Person sx={{fill: "black"}}/>
+        </a>
       </Toolbar>
     </AppBar>
   )
