@@ -13,7 +13,7 @@ const updateData = {
 export async function getRatings() {
   if (checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
 
-  const res = await getData("/api/rating");
+  const res = await getData("/api/ratings");
   if (res.status === 200) {
     return res.data["hydra:member"];
   }
@@ -24,7 +24,7 @@ export async function postRating(data) {
   if (checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
   if (validateData(writeData, data)) return responseInvalidData;
 
-  const res = await postData("/api/rating", data);
+  const res = await postData("/api/ratings", data);
   if (res.status === 201) {
     return res.data;
   }
@@ -34,7 +34,7 @@ export async function postRating(data) {
 export async function getRating(id) {
   if (checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
 
-  const res = await getData(`/api/rating/${id}`);
+  const res = await getData(`/api/ratings/${id}`);
   if (res.status === 200) {
     return res.data;
   }
@@ -45,7 +45,7 @@ export async function putRating(id, data) {
   if (checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
   if (validateData(updateData, data)) return responseInvalidData;
 
-  const res = await putData(`/api/rating/${id}`, data);
+  const res = await putData(`/api/ratings/${id}`, data);
   if (res.status === 200) {
     return res.data;
   }
@@ -55,7 +55,7 @@ export async function putRating(id, data) {
 export async function deleteRating(id) {
   if (checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
 
-  const res = await deleteData(`/api/rating/${id}`);
+  const res = await deleteData(`/api/ratings/${id}`);
   if (res.status === 200) {
     return res.data;
   }
@@ -66,7 +66,7 @@ export async function patchRating(id, data) {
   if (checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
   if (validateData(updateData, data)) return responseInvalidData;
 
-  const res = await putData(`/api/rating/${id}`, data);
+  const res = await putData(`/api/ratings/${id}`, data);
   if (res.status === 200) {
     return res.data;
   }
