@@ -30,7 +30,6 @@ const imgList = [
     },
   ];
   
-  // Définition d'une fonction React appelée "Succes"
   function Succes() {
     {/** composant qui affiche en mode mobile */}
     return (
@@ -52,9 +51,9 @@ const imgList = [
             ))}
           </div>
         </div>
-      </div> // Fin du rendu du composant Succes
+      </div> 
     );
   }
   
-  // Exportation du composant Succes pour une utilisation ultérieure
+
   export default Succes;

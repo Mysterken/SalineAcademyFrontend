@@ -10,7 +10,7 @@ function Profil(){
     const [Niveau, setNiveau] = useState(50); //Niveau de l'utilisateur
 
     return(
-        <div className= "bg-white rounded-xl p-4 w-[320px] h-[220px] relative"> {/**Div composant le cadre de profil de l'utilisateur */}
+        <div className= "rounded-xl p-4 w-[320px] h-[220px] relative"> {/**Div composant le cadre de profil de l'utilisateur */}
             <div className="absolute ml-32 mt-10">
                 <img src="/assets/logo.png" alt="" />
             </div>

@@ -1,14 +1,14 @@
 import {
-    LineChart,         // Importe le composant LineChart de Recharts pour créer un graphique en ligne.
-    Line,              // Importe le composant Line pour définir la ligne du graphique.
-    CartesianGrid,     // Importe le composant CartesianGrid pour ajouter une grille au graphique.
-    XAxis,             // Importe le composant XAxis pour spécifier l'axe X du graphique.
-    YAxis,             // Importe le composant YAxis pour spécifier l'axe Y du graphique.
-    Tooltip,           // Importe le composant Tooltip pour afficher des informations au survol du graphique.
+    LineChart,    
+    Line,              
+    CartesianGrid,   
+    XAxis,            
+    YAxis,         
+    Tooltip,       
   } from "recharts";
   
   
-  function LineChartComponent() {  // Définit une fonction composant React appelée LineChartComponent.
+  function LineChartComponent() { 
   
     const data = [  // Définit un tableau de données fictives pour le graphique.
       { name: "2000", uv: 0 },
@@ -30,7 +30,7 @@ import {
         return (
           <div className="custom-tooltip" style={{backgroundColor:"white", paddingLeft:"2px",paddingRight:"2px",fontSize:"10px"}}>
             <h3 style={{}}>Progression</h3>
-            <h4 className="label">{`${label} : `}<span style={{fontSize:"15px", color:"#000000"}}>{`${payload[0].value}`}</span></h4>
+            <h4 className="label">{`${label} : `}<span style={{fontSize:"15px", color:"#161D3D"}}>{`${payload[0].value}`}</span></h4>
             {/* Personnalise le contenu de l'info-bulle ici */}
           </div>
         );
@@ -56,4 +56,4 @@ import {
     );
   }
   
-  export default LineChartComponent; // Exporte le composant LineChartComponent pour être utilisé ailleurs dans l'application.
+  export default LineChartComponent; 

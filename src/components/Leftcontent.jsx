@@ -1,12 +1,12 @@
-// Importation du composant Profil depuis le chemin spécifié
+
 import Profil from "./Profile.jsx";
 
-// Importation du composant Level depuis le chemin spécifié
+
 import { Level } from "./Level.jsx";
 
 import Photoguitare from "../assets/guitare.png"
 
-// Définition de la fonction LeftContent
+
 function LeftContent() {
   return (
     <div>
@@ -36,5 +36,4 @@ function LeftContent() {
   );
 }
 
-// Exportation de la fonction LeftContent en tant que composant par défaut
 export default LeftContent;
