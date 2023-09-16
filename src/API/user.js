@@ -3,13 +3,11 @@ export const responseNoPermission = {
   message: "You don't have permission to do this"
 }
 
-export function checkUserRole(role) {
+export function checkUserRoles(roles) {
   const token = localStorage.getItem("token");
   if (token) {
     const payload = JSON.parse(atob(token.split(".")[1]));
-    if (payload.role === role) {
-      return true
-    }
+    return roles.some((role) => payload.roles.includes(role));
   }
   return false
 }

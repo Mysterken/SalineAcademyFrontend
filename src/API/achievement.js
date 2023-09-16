@@ -1,5 +1,5 @@
 import {deleteData, getData, patchData, postData, putData, responseInvalidData, validateData} from "./dataFetcher.js";
-import {checkUserRole, responseNoPermission} from "./user.js";
+import {checkUserRoles, responseNoPermission} from "./user.js";
 
 const writeData = {
   name: "string",
@@ -9,7 +9,7 @@ const writeData = {
 }
 
 export async function getAchievements() {
-  if (!checkUserRole("ROLE_USER")) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_USER"])) return responseNoPermission;
 
   const res = await getData("/api/achievements");
   if (res.status === 200) {
@@ -19,7 +19,7 @@ export async function getAchievements() {
 }
 
 export async function postAchievement(data) {
-  if (!checkUserRole("ROLE_ADMIN")) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
   if (validateData(writeData, data)) return responseInvalidData;
 
   const res = await postData("/api/achievements", data);
@@ -30,7 +30,7 @@ export async function postAchievement(data) {
 }
 
 export async function getAchievement(id) {
-  if (!checkUserRole("ROLE_USER")) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_USER"])) return responseNoPermission;
 
   const res = await getData(`/api/achievements/${id}`);
   if (res.status === 200) {
@@ -40,7 +40,7 @@ export async function getAchievement(id) {
 }
 
 export async function putAchievement(id, data) {
-  if (!checkUserRole("ROLE_ADMIN")) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
   if (validateData(writeData, data)) return responseInvalidData;
 
   const res = await putData(`/api/achievements/${id}`, data);
@@ -51,7 +51,7 @@ export async function putAchievement(id, data) {
 }
 
 export async function deleteAchievement(id) {
-  if (!checkUserRole("ROLE_ADMIN")) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
 
   const res = await deleteData(`/api/achievements/${id}`);
   if (res.status === 204) {
@@ -61,7 +61,7 @@ export async function deleteAchievement(id) {
 }
 
 export async function patchAchievement(id, data) {
-  if (!checkUserRole("ROLE_ADMIN")) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
   if (validateData(writeData, data)) return responseInvalidData;
 
   const res = await patchData(`/api/achievements/${id}`, data);

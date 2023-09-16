@@ -1,5 +1,5 @@
 import {deleteData, getData, patchData, postData, putData, responseInvalidData, validateData} from "./dataFetcher.js";
-import {checkUserRole, responseNoPermission} from "./user.js";
+import {checkUserRoles, responseNoPermission} from "./user.js";
 
 const writeData = {
   name: "string",
@@ -14,7 +14,7 @@ export async function getCategories() {
 }
 
 export async function postCategory(data) {
-  if (checkUserRole("ROLE_ADMIN")) return responseNoPermission;
+  if (checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
   if (validateData(writeData, data)) return responseInvalidData;
 
   const res = await postData("/api/categories", data);
@@ -33,7 +33,7 @@ export async function getCategory(id) {
 }
 
 export async function putCategory(id, data) {
-  if (checkUserRole("ROLE_ADMIN")) return responseNoPermission;
+  if (checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
   if (validateData(writeData, data)) return responseInvalidData;
 
   const res = await putData(`/api/categories/${id}`, data);
@@ -44,7 +44,7 @@ export async function putCategory(id, data) {
 }
 
 export async function deleteCategory(id) {
-  if (checkUserRole("ROLE_ADMIN")) return responseNoPermission;
+  if (checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
 
   const res = await deleteData(`/api/categories/${id}`);
   if (res.status === 204) {
@@ -54,7 +54,7 @@ export async function deleteCategory(id) {
 }
 
 export async function patchCategory(id, data) {
-  if (checkUserRole("ROLE_ADMIN")) return responseNoPermission;
+  if (checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
   if (validateData(writeData, data)) return responseInvalidData;
 
   const res = await patchData(`/api/categories/${id}`, data);

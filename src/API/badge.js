@@ -1,5 +1,5 @@
 import {deleteData, getData, patchData, postData, putData, responseInvalidData, validateData} from "./dataFetcher.js";
-import {checkUserRole, responseNoPermission} from "./user.js";
+import {checkUserRoles, responseNoPermission} from "./user.js";
 
 const writeData = {
   "name": "string",
@@ -8,7 +8,7 @@ const writeData = {
 }
 
 export async function getBadges() {
-  if (!checkUserRole("ROLE_USER")) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_USER"])) return responseNoPermission;
 
   const res = await getData("/api/badges");
   if (res.status === 200) {
@@ -18,7 +18,7 @@ export async function getBadges() {
 }
 
 export async function postBadge(data) {
-  if (!checkUserRole("ROLE_ADMIN")) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
   if (validateData(writeData, data)) return responseInvalidData;
 
   const res = await postData("/api/badges", data);
@@ -29,7 +29,7 @@ export async function postBadge(data) {
 }
 
 export async function getBadge(id) {
-  if (!checkUserRole("ROLE_USER")) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_USER"])) return responseNoPermission;
 
   const res = await getData(`/api/badges/${id}`);
   if (res.status === 200) {
@@ -39,7 +39,7 @@ export async function getBadge(id) {
 }
 
 export async function putBadge(id, data) {
-  if (!checkUserRole("ROLE_ADMIN")) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
   if (validateData(writeData, data)) return responseInvalidData;
 
   const res = await putData(`/api/badges/${id}`, data);
@@ -50,7 +50,7 @@ export async function putBadge(id, data) {
 }
 
 export async function deleteBadge(id) {
-  if (!checkUserRole("ROLE_ADMIN")) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
 
   const res = await deleteData(`/api/badges/${id}`);
   if (res.status === 204) {
@@ -60,7 +60,7 @@ export async function deleteBadge(id) {
 }
 
 export async function patchBadge(id, data) {
-  if (!checkUserRole("ROLE_ADMIN")) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
   if (validateData(writeData, data)) return responseInvalidData;
 
   const res = await patchData(`/api/badges/${id}`, data);
