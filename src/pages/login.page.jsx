@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import Copyright from "../component/Copyright.jsx";
+import Navbar from "../component/Navbar.jsx";
 
 export {Page}
 
@@ -29,6 +30,7 @@ function Page() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
+      <Navbar/>
       <Container component="main" maxWidth="xs">
         <CssBaseline/>
         <Box
