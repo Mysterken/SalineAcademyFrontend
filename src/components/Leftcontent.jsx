@@ -1,11 +1,6 @@
-
 import Profil from "./Profile.jsx";
-
-
 import { Level } from "./Level.jsx";
-
 import Photoguitare from "../assets/guitare.png"
-
 
 function LeftContent() {
   return (
