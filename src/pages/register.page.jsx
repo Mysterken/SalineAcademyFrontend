@@ -11,6 +11,7 @@ import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import Copyright from "../component/Copyright.jsx";
 import Navbar from "../component/Navbar.jsx";
+import "../style/register.css"
 
 export {Page}
 
@@ -39,9 +40,6 @@ function Page() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{m: 1, bgcolor: 'secondary.main'}}>
-            <LockOutlinedIcon/>
-          </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
@@ -56,6 +54,8 @@ function Page() {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  inputProps={{style: {color: "white"}}}
+                  InputLabelProps={{style: {color: "white"}}}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -66,6 +66,8 @@ function Page() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  inputProps={{style: {color: "white"}}}
+                  InputLabelProps={{style: {color: "white"}}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -76,6 +78,8 @@ function Page() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  inputProps={{style: {color: "white"}}}
+                  InputLabelProps={{style: {color: "white"}}}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -87,6 +91,8 @@ function Page() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  inputProps={{style: {color: "white"}}}
+                  InputLabelProps={{style: {color: "white"}}}
                 />
               </Grid>
             </Grid>
@@ -107,7 +113,7 @@ function Page() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{mt: 5}}/>
+        <Copyright sx={{mt: 5, color: "white"}}/>
       </Container>
     </ThemeProvider>
   );

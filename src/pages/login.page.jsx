@@ -1,18 +1,15 @@
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import Copyright from "../component/Copyright.jsx";
 import Navbar from "../component/Navbar.jsx";
+import "../style/login.css"
 
 export {Page}
 
@@ -41,9 +38,6 @@ function Page() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{m: 1, bgcolor: 'secondary.main'}}>
-            <LockOutlinedIcon/>
-          </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
@@ -57,6 +51,8 @@ function Page() {
               name="email"
               autoComplete="email"
               autoFocus
+              inputProps={{style: {color: "white"}}}
+              InputLabelProps={{style: {color: "white"}}}
             />
             <TextField
               margin="normal"
@@ -67,10 +63,8 @@ function Page() {
               type="password"
               id="password"
               autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary"/>}
-              label="Remember me"
+              inputProps={{style: {color: "white"}}}
+              InputLabelProps={{style: {color: "white"}}}
             />
             <Button
               type="submit"
@@ -91,7 +85,7 @@ function Page() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{mt: 8, mb: 4}}/>
+        <Copyright sx={{mt: 8, mb: 4, color: "white"}}/>
       </Container>
     </ThemeProvider>
   );
