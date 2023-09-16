@@ -8,9 +8,7 @@ export default function Navbar() {
   return (
     <AppBar position="relative" sx={{backgroundColor: "rgba(0, 0, 0, 0)", boxShadow: "none", marginTop: "16px"}}>
       <Toolbar>
-        <a href="/home" style={{marginRight: "auto"}}>
-          <LogoDev sx={{fill: "black"}}/>
-        </a>
+        <LogoDev sx={{fill: "black", marginRight: "auto"}}/>
         <Box p="16px 32px" style={{
           display: "flex",
           gap: "48px",
@@ -19,25 +17,25 @@ export default function Navbar() {
           fontSize: "14px",
           fontWeight: "1000",
         }}>
-          <Box sx={{display: "flex", alignItems: "center"}}>
+          <Box onClick={() => window.location.href = "/home"} sx={{display: "flex", alignItems: "center"}}>
             <Home sx={{marginRight: "15px"}}/>
             <Typography color="inherit" noWrap>
               HOME
             </Typography>
           </Box>
-          <Box sx={{display: "flex", alignItems: "center"}}>
+          <Box onClick={() => window.location.href = "/listen"} sx={{display: "flex", alignItems: "center"}}>
             <Tv sx={{marginRight: "15px"}}/>
             <Typography noWrap>
               WATCH
             </Typography>
           </Box>
-          <Box style={{display: "flex", alignItems: "center"}}>
+          <Box onClick={() => window.location.href = "/watch"} style={{display: "flex", alignItems: "center"}}>
             <MusicNote sx={{marginRight: "15px"}}/>
             <Typography noWrap>
               LISTEN
             </Typography>
           </Box>
-          <Box style={{display: "flex", alignItems: "center"}}>
+          <Box onClick={() => window.location.href = "/decouvrir"} style={{display: "flex", alignItems: "center"}}>
             <School sx={{marginRight: "15px"}}/>
             <Typography noWrap>
               LEARN
