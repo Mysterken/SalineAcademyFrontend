@@ -28,7 +28,6 @@ function Page() {
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: 'background.paper',
             pt: 8,
             pb: 6,
           }}
@@ -38,12 +37,11 @@ function Page() {
               component="h1"
               variant="h2"
               align="center"
-              color="text.primary"
               gutterBottom
             >
               Album layout
             </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
+            <Typography variant="h5" align="center" paragraph>
               Something short and leading about the collection below—its contents,
               the creator, etc. Make it short and sweet, but not too short so folks
               don&apos;t simply skip over it entirely.
@@ -95,19 +93,18 @@ function Page() {
         </Container>
       </main>
       {/* Footer */}
-      <Box sx={{bgcolor: 'background.paper', p: 6}} component="footer">
+      <Box sx={{p: 6}} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
           Footer
         </Typography>
         <Typography
           variant="subtitle1"
           align="center"
-          color="text.secondary"
           component="p"
         >
           Something here to give the footer a purpose!
         </Typography>
-        <Copyright/>
+        <Copyright sx={{color: "white"}}/>
       </Box>
       {/* End footer */}
     </ThemeProvider>
