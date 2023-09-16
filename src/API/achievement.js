@@ -1,4 +1,4 @@
-import {deleteData, getData, postData, putData, responseInvalidData, validateData} from "./dataFetcher.js";
+import {deleteData, getData, patchData, postData, putData, responseInvalidData, validateData} from "./dataFetcher.js";
 import {checkUserRole, responseNoPermission} from "./user.js";
 
 const writeData = {
@@ -64,7 +64,7 @@ export async function patchAchievement(id, data) {
   if (!checkUserRole("ROLE_ADMIN")) return responseNoPermission;
   if (validateData(writeData, data)) return responseInvalidData;
 
-  const res = await putData(`/api/achievements/${id}`, data);
+  const res = await patchData(`/api/achievements/${id}`, data);
   if (res.status === 200) {
     return res.data;
   }
