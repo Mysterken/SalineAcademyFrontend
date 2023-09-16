@@ -10,12 +10,22 @@ import {createTheme, ThemeProvider} from '@mui/material/styles';
 import Copyright from "../component/Copyright.jsx";
 import Navbar from "../component/Navbar.jsx";
 import {login} from "../API/user.js";
+import {useEffect} from "react";
+import {toast, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export {Page}
 
 const defaultTheme = createTheme();
 
 function Page() {
+
+  useEffect(() => {
+    if (localStorage.getItem('token') !== null) {
+      window.location.href = "/home"
+    }
+  }, [])
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -27,7 +37,16 @@ function Page() {
         if (response.status === 200) {
           window.location.href = "/home"
         } else {
-          alert(response.message)
+          toast.error(response.message, {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
         }
       }
     );
@@ -82,6 +101,18 @@ function Page() {
             >
               Sign In
             </Button>
+            <ToastContainer
+              position="bottom-right"
+              autoClose={5000}
+              hideProgressBar
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover={false}
+              theme="dark"
+            />
             <Grid container>
               <Grid item xs>
               </Grid>
