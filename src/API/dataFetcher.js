@@ -29,7 +29,7 @@ export async function postData(url, data) {
     .catch((err) => {
       return {
         status: err.response.status,
-        message: err.response?.data?.detail ?? err.response?.data["hydra:description"]
+        message: err.response?.data?.detail ?? err.response?.data["hydra:description"] ?? err.response?.data?.message
       };
     });
 }
