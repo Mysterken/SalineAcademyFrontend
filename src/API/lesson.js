@@ -26,8 +26,8 @@ export async function getLessons() {
 }
 
 export async function postLesson(data) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
-  if (validateData(writeData, data)) return responseInvalidData;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
+  if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await postData("/api/lessons", data);
   if (res.status === 201) {
@@ -45,8 +45,8 @@ export async function getLesson(id) {
 }
 
 export async function putLesson(id, data) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
-  if (validateData(updateData, data)) return responseInvalidData;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
+  if (!validateData(updateData, data)) return responseInvalidData;
 
   const res = await putData(`/api/lessons/${id}`, data);
   if (res.status === 200) {
@@ -56,7 +56,7 @@ export async function putLesson(id, data) {
 }
 
 export async function deleteLesson(id) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
 
   const res = await deleteData(`/api/lessons/${id}`);
   if (res.status === 204) {
@@ -66,8 +66,8 @@ export async function deleteLesson(id) {
 }
 
 export async function patchLesson(id, data) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
-  if (validateData(updateData, data)) return responseInvalidData;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
+  if (!validateData(updateData, data)) return responseInvalidData;
 
   const res = await patchData(`/api/lessons/${id}`, data);
   if (res.status === 200) {

@@ -6,7 +6,7 @@ const writeData = {
 }
 
 export async function getEnrollments() {
-  if (checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
 
   const res = await getData("/api/enrollments");
   if (res.status === 200) {
@@ -16,8 +16,8 @@ export async function getEnrollments() {
 }
 
 export async function postEnrollment(data) {
-  if (checkUserRoles(["ROLE_USER"])) return responseNoPermission;
-  if (validateData(writeData, data)) return responseInvalidData;
+  if (!checkUserRoles(["ROLE_USER"])) return responseNoPermission;
+  if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await postData("/api/enrollments", data);
   if (res.status === 201) {
@@ -27,7 +27,7 @@ export async function postEnrollment(data) {
 }
 
 export async function getEnrollment(id) {
-  if (checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
 
   const res = await getData(`/api/enrollments/${id}`);
   if (res.status === 200) {
@@ -37,8 +37,8 @@ export async function getEnrollment(id) {
 }
 
 export async function putEnrollment(id, data) {
-  if (checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
-  if (validateData(writeData, data)) return responseInvalidData;
+  if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
+  if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await putData(`/api/enrollments/${id}`, data);
   if (res.status === 200) {
@@ -48,7 +48,7 @@ export async function putEnrollment(id, data) {
 }
 
 export async function deleteEnrollment(id) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
 
   const res = await deleteData(`/api/enrollments/${id}`);
   if (res.status === 204) {
@@ -58,8 +58,8 @@ export async function deleteEnrollment(id) {
 }
 
 export async function patchEnrollment(id, data) {
-  if (checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
-  if (validateData(writeData, data)) return responseInvalidData;
+  if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
+  if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await patchData(`/api/enrollments/${id}`, data);
   if (res.status === 200) {

@@ -11,7 +11,7 @@ const updateData = {
 }
 
 export async function getProgresses() {
-  if (checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
   const res = await getData("/api/progress");
   if (res.status === 200) {
     return res.data["hydra:member"];
@@ -20,8 +20,8 @@ export async function getProgresses() {
 }
 
 export async function postProgress(data) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
-  if (validateData(writeData, data)) return responseInvalidData;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
+  if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await postData("/api/progress", data);
   if (res.status === 201) {
@@ -31,7 +31,7 @@ export async function postProgress(data) {
 }
 
 export async function getProgress(id) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
 
   const res = await getData(`/api/progress/${id}`);
   if (res.status === 200) {
@@ -41,8 +41,8 @@ export async function getProgress(id) {
 }
 
 export async function putProgress(id, data) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
-  if (validateData(updateData, data)) return responseInvalidData;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
+  if (!validateData(updateData, data)) return responseInvalidData;
 
   const res = await putData(`/api/progress/${id}`, data);
   if (res.status === 200) {
@@ -52,7 +52,7 @@ export async function putProgress(id, data) {
 }
 
 export async function deleteProgress(id) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
 
   const res = await deleteData(`/api/progress/${id}`);
   if (res.status === 200) {
@@ -62,8 +62,8 @@ export async function deleteProgress(id) {
 }
 
 export async function patchProgress(id, data) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
-  if (validateData(updateData, data)) return responseInvalidData;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_USER"])) return responseNoPermission;
+  if (!validateData(updateData, data)) return responseInvalidData;
 
   const res = await patchData(`/api/progress/${id}`, data);
   if (res.status === 200) {

@@ -20,8 +20,8 @@ export async function getMasterclasses() {
 }
 
 export async function postMasterclass(data) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
-  if (validateData(writeData, data)) return responseInvalidData;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
+  if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await postData("/api/masterclasses", data);
   if (res.status === 201) {
@@ -39,8 +39,8 @@ export async function getMasterclass(id) {
 }
 
 export async function putMasterclass(id, data) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
-  if (validateData(writeData, data)) return responseInvalidData;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
+  if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await putData(`/api/masterclasses/${id}`, data);
   if (res.status === 200) {
@@ -50,7 +50,7 @@ export async function putMasterclass(id, data) {
 }
 
 export async function deleteMasterclass(id) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
   const res = await deleteData(`/api/masterclasses/${id}`);
   if (res.status === 200) {
     return res.data;
@@ -59,7 +59,7 @@ export async function deleteMasterclass(id) {
 }
 
 export async function patchMasterclass(id, data) {
-  if (checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
+  if (!checkUserRoles(["ROLE_ADMIN", "ROLE_TEACHER"])) return responseNoPermission;
   const res = await patchData(`/api/masterclasses/${id}`, data);
   if (res.status === 200) {
     return res.data;

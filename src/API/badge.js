@@ -19,7 +19,7 @@ export async function getBadges() {
 
 export async function postBadge(data) {
   if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
-  if (validateData(writeData, data)) return responseInvalidData;
+  if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await postData("/api/badges", data);
   if (res.status === 201) {
@@ -40,7 +40,7 @@ export async function getBadge(id) {
 
 export async function putBadge(id, data) {
   if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
-  if (validateData(writeData, data)) return responseInvalidData;
+  if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await putData(`/api/badges/${id}`, data);
   if (res.status === 200) {
@@ -61,7 +61,7 @@ export async function deleteBadge(id) {
 
 export async function patchBadge(id, data) {
   if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
-  if (validateData(writeData, data)) return responseInvalidData;
+  if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await patchData(`/api/badges/${id}`, data);
   if (res.status === 200) {

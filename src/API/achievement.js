@@ -20,7 +20,7 @@ export async function getAchievements() {
 
 export async function postAchievement(data) {
   if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
-  if (validateData(writeData, data)) return responseInvalidData;
+  if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await postData("/api/achievements", data);
   if (res.status === 201) {
@@ -41,7 +41,7 @@ export async function getAchievement(id) {
 
 export async function putAchievement(id, data) {
   if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
-  if (validateData(writeData, data)) return responseInvalidData;
+  if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await putData(`/api/achievements/${id}`, data);
   if (res.status === 200) {
@@ -62,7 +62,7 @@ export async function deleteAchievement(id) {
 
 export async function patchAchievement(id, data) {
   if (!checkUserRoles(["ROLE_ADMIN"])) return responseNoPermission;
-  if (validateData(writeData, data)) return responseInvalidData;
+  if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await patchData(`/api/achievements/${id}`, data);
   if (res.status === 200) {
