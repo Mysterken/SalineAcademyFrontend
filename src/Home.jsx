@@ -10,13 +10,14 @@ import Footer from './Components/Footer.jsx';
 import CardInformation from './Components/CardInformation.jsx';
 import CardEnseignants from './Components/CardEnseignants.jsx'
 import CardSub from './Components/CardSub.jsx';
-import axios from "axios";
 
 
 function Home() {
 
   const [dataJson, setDataJson] = useState(null);
   const [getVideosUrl, setGetVideosUrl] = useState([]);
+
+  // import de la base de donnée 
   fetch('https://localhost/api/lessons')
     .then(reponse => reponse.json())
     .then(data => {
@@ -27,6 +28,7 @@ function Home() {
       console.log(error)
     })
 
+    // import des de data.json
     useEffect(()=> {
       fetch('../src/data/data.json')
         .then((reponse) =>{
