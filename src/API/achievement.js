@@ -11,7 +11,7 @@ const writeData = {
 export async function getAchievements() {
   if (!checkUserRole("ROLE_USER")) return responseNoPermission;
 
-  const res = await getData("/api/lessons");
+  const res = await getData("/api/achievements");
   if (res.status === 200) {
     return res.data["hydra:member"];
   }
