@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import Copyright from "../component/Copyright.jsx";
 import Navbar from "../component/Navbar.jsx";
-import "../style/login.css"
+import {login} from "../API/user.js";
 
 export {Page}
 
@@ -19,10 +19,18 @@ function Page() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
+    login({
+      username: data.get('email'),
       password: data.get('password'),
-    });
+    }).then(
+      (response) => {
+        if (response.status === 200) {
+          window.location.href = "/home"
+        } else {
+          alert(response.message)
+        }
+      }
+    );
   };
 
   return (
