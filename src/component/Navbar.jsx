@@ -23,13 +23,13 @@ export default function Navbar() {
               HOME
             </Typography>
           </Box>
-          <Box onClick={() => window.location.href = "/listen"} sx={{display: "flex", alignItems: "center"}}>
+          <Box onClick={() => window.location.href = "/watch"} sx={{display: "flex", alignItems: "center"}}>
             <Tv sx={{marginRight: "15px"}}/>
             <Typography noWrap>
               WATCH
             </Typography>
           </Box>
-          <Box onClick={() => window.location.href = "/watch"} style={{display: "flex", alignItems: "center"}}>
+          <Box onClick={() => window.location.href = "/listen"} style={{display: "flex", alignItems: "center"}}>
             <MusicNote sx={{marginRight: "15px"}}/>
             <Typography noWrap>
               LISTEN
