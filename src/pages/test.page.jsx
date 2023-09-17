@@ -9,7 +9,7 @@ function Page() {
   const [lesson, setLesson] = useState(null);
 
   useEffect(() => {
-    getLesson(1)
+    getLesson(21)
       .then((lesson) => setLesson(lesson))
       .catch((error) => console.error(error))
   }, [])
