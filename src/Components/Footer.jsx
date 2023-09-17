@@ -1,5 +1,3 @@
-import React from 'react';
-import { useState } from 'react';
 import logo from '../img/logo-saline-royale-academy-favicon-blanc-V2.svg';
 import '../Footer.css';
 

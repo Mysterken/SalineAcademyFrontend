@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
 import '../CardEnseignants.css';
 
 
 
 function CardEnseignants(props) {
-    
+
     return(
         <>
             <a className='CTAProfs' href="#">

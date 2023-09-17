@@ -1,4 +1,3 @@
-import React from 'react';
 import '../CardInformation.css';
 
 function CardInformation(props) {

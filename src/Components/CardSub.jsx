@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
 import '../CardSub.css';
 
 function CardSub() {
-    
+
     return(
         <>
             <div className='containerCardSub'>
