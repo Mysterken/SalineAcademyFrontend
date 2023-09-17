@@ -43,7 +43,10 @@ export async function login(data) {
   const res = await postData("/api/login_check", data);
   if (res.status === 200) {
     localStorage.setItem("token", res.data.token);
-    return res.data;
+    return {
+      status: 200,
+      message: "Successfully logged in"
+    };
   }
   return res;
 }

@@ -34,8 +34,9 @@ function Page() {
       password: data.get('password'),
     }).then(
       (response) => {
+        console.log(response)
         if (response.status === 200) {
-          toast.success('Successfully logged in', {
+          toast.success(response.message, {
             position: "bottom-right",
             autoClose: 3000,
             hideProgressBar: false,
