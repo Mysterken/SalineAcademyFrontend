@@ -12,7 +12,7 @@ import Navbar from "../component/Navbar.jsx";
 import {login} from "../API/user.js";
 import {useEffect} from "react";
 import {toast, ToastContainer} from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 export {Page}
 
@@ -39,13 +39,13 @@ function Page() {
         } else {
           toast.error(response.message, {
             position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: true,
+            autoClose: 3000,
+            hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,
             draggable: true,
             progress: undefined,
-            theme: "dark",
+            theme: "light",
           });
         }
       }
@@ -103,7 +103,7 @@ function Page() {
             </Button>
             <ToastContainer
               position="bottom-right"
-              autoClose={5000}
+              autoClose={3000}
               hideProgressBar
               newestOnTop={false}
               closeOnClick
@@ -111,7 +111,7 @@ function Page() {
               pauseOnFocusLoss
               draggable
               pauseOnHover={false}
-              theme="dark"
+              theme="light"
             />
             <Grid container>
               <Grid item xs>
