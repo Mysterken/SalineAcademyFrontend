@@ -18,7 +18,9 @@
     "react-dom": "^18.2.0",
     "vite-plugin-ssr": "^0.4.140",
     "react-hexagonal-progressbar": "^1.0.0",
-    "recharts": "^2.8.0"
+    "recharts": "^2.8.0",
+    "mui": "version_desirée",
+    "emotions": "version_desirée"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
