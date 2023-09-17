@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
+    "build": "vite --host",
     "preview": "vite preview",
     "lint": "eslint 'src/'",
     "pretty": "prettier --write src/"
@@ -13,10 +13,11 @@
   "dependencies": {
     "axios": "^1.5.0",
     "process": "^0.11.10",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-player": "^2.13.0",
-    "react-router-dom": "^6.14.1"
+    "vite-plugin-ssr": "^0.4.140",
+    "react-player": "^2.13.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
