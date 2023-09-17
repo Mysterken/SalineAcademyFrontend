@@ -38,7 +38,7 @@ function Page() {
         if (response.status === 200) {
           toast.success(response.message, {
             position: "bottom-right",
-            autoClose: 3000,
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -47,7 +47,7 @@ function Page() {
             theme: "light",
           });
 
-          setTimeout(() => window.location.href = "/home", 3000)
+          setTimeout(() => window.location.href = "/home", 1500)
         } else {
           toast.error(response.message, {
             position: "bottom-right",
@@ -115,7 +115,7 @@ function Page() {
             </Button>
             <ToastContainer
               position="bottom-right"
-              autoClose={3000}
+              autoClose={1500}
               hideProgressBar
               newestOnTop={false}
               closeOnClick

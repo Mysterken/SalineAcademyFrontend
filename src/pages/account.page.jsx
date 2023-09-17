@@ -22,7 +22,7 @@ function Page() {
   function handleLogout() {
     toast.info('Logging out...', {
       position: "bottom-right",
-      autoClose: 3000,
+      autoClose: 1500,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -34,7 +34,7 @@ function Page() {
     setTimeout(() => {
       localStorage.removeItem("token")
       window.location.href = "/home"
-    }, 3000)
+    }, 1500)
   }
 
   return (
@@ -47,7 +47,7 @@ function Page() {
           </Button>
           <ToastContainer
             position="bottom-right"
-            autoClose={5000}
+            autoClose={1500}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick

@@ -40,7 +40,7 @@ function Page() {
         if (response.status === 200) {
           toast.success("User successfully registered", {
             position: "bottom-right",
-            autoClose: 3000,
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -52,7 +52,7 @@ function Page() {
           login({
             username: data.get('email'),
             password: data.get('password'),
-          }).then(() => setTimeout(() => window.location.href = "/home", 3000))
+          }).then(() => setTimeout(() => window.location.href = "/home", 1500))
         } else {
           toast.error(response.message, {
             position: "bottom-right",
