@@ -9,6 +9,9 @@ import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import Copyright from "../component/Copyright.jsx";
 import Navbar from "../component/Navbar.jsx";
+import {login, register} from "../API/user.js";
+import {toast, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.min.css';
 
 export {Page}
 
@@ -18,10 +21,51 @@ function Page() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    const registerData = {
+      username: data.get('username'),
       email: data.get('email'),
       password: data.get('password'),
-    });
+    }
+
+    if (data.get('firstName')) {
+      registerData.firstName = data.get('firstName')
+    }
+    if (data.get('lastName')) {
+      registerData.lastName = data.get('lastName')
+    }
+
+    register(registerData)
+      .then((response) => {
+        console.log(response)
+        if (response.status === 200) {
+          toast.success("User successfully registered", {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+
+          login({
+            username: data.get('email'),
+            password: data.get('password'),
+          }).then(() => setTimeout(() => window.location.href = "/home", 3000))
+        } else {
+          toast.error(response.message, {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      })
   };
 
   return (
@@ -46,7 +90,6 @@ function Page() {
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
-                  required
                   fullWidth
                   id="firstName"
                   label="First Name"
@@ -57,12 +100,23 @@ function Page() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  required
                   fullWidth
                   id="lastName"
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  inputProps={{style: {color: "white"}}}
+                  InputLabelProps={{style: {color: "white"}}}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  name="username"
+                  autoComplete="username"
                   inputProps={{style: {color: "white"}}}
                   InputLabelProps={{style: {color: "white"}}}
                 />
@@ -101,6 +155,18 @@ function Page() {
             >
               Sign Up
             </Button>
+            <ToastContainer
+              position="bottom-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/login" variant="body2">

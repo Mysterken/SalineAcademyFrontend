@@ -28,7 +28,7 @@ export async function register(data) {
   if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await postData("/api/register", data);
-  if (res.status === 201) {
+  if (res.status === 201 || res.status === "success") {
     return res.data;
   }
   return res;
