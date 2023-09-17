@@ -29,7 +29,11 @@ export async function postData(url, data) {
     .catch((err) => {
       return {
         status: err.response.status,
-        message: err.response?.data?.detail ?? err.response?.data["hydra:description"]
+        message:
+          err.response?.data?.errors?.detail ??
+          err.response?.data?.detail ??
+          err.response?.data["hydra:description"] ??
+          err.response?.data?.message
       };
     });
 }
@@ -95,6 +99,7 @@ export function validateData(dataSchema, data) {
     return false;
   }
   for (const [key, value] of Object.entries(dataSchema)) {
+    if (data[key] === undefined) continue;
     if (typeof data[key] !== value) {
       return false;
     }
