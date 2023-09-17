@@ -3,6 +3,8 @@ import './Quizz.css';
 import Question from './Question';
 import BoutonsReponse from './Boutonsreponse';
 import Score from './score';
+import axios from 'axios';
+
 
 class Quizz extends Component {
   constructor(props) {
@@ -19,10 +21,58 @@ class Quizz extends Component {
         },
         {
           id: 2,
-          texte: "Quel est le langage de programmation le plus populaire en 2023 ?",
-          options: ["JavaScript", "Python", "Beethoven",],
-          reponseCorrecte: "JavaScript"
-        }
+          texte: "Quel instrument de musique est souvent associé à Mozart ?",
+          options: ["Piano", "Violon", "Trompette","Flûte"],
+          reponseCorrecte: "Piano"
+        },
+        {
+            id: 3,
+            texte: "Quel terme désigne la succession de notes dans une mélodie musicale ?",
+            options: ["Timbre", "Harmonie", "Rythme","Mélodie"],
+            reponseCorrecte: "Mélodie"
+        },
+        {
+            id: 4,
+            texte: "Qui est célèbre pour sa technique de guitare appelée 'tapping' ?",
+            options: ["Jimi Hendrix", "Eric Clapton", "John Lennon","Eddie Van Halen"],
+            reponseCorrecte: "Eddie Van Halen"
+        },
+        {
+            id: 5,
+            texte: "Quel genre musical est caractérisé par l'utilisation de platines vinyles et de samples ?",
+            options: ["Jazz", "Blues", "Hip-hop","Reggae"],
+            reponseCorrecte: "Hip-hop"
+        },
+        {
+            id: 6,
+            texte: "Dans quel genre musical peut-on entendre le sitar, un instrument à cordes indien ?",
+            options: ["Country", "Rock", "Reggae","Musique classique indienne"],
+            reponseCorrecte: "Musique classique indienne"
+        },
+        {
+            id: 7,
+            texte: "Quel instrument à percussion est constitué d'une série de cloches de différentes tailles ?",
+            options: ["Glockenspiel", "Marimba", "Xylophone","Tambour"],
+            reponseCorrecte: "Glockenspiel"
+        },
+        {
+            id: 8,
+            texte: "De quel pays provient le tango, un style musical et une danse passionnée ?",
+            options: ["France", "Espagne", "Argentine","italie"],
+            reponseCorrecte: "Argentine"
+        },
+        {
+            id: 9,
+            texte: "Quel genre musical est caractérisé par le jeu virtuose de la guitare et des paroles poétiques ?",
+            options: ["Country", "Flamenco", "Salsa","R&B"],
+            reponseCorrecte: "Flamenco"
+        },
+        {
+            id: 10,
+            texte: "Quelle est la note la plus basse d'un piano standard ?",
+            options: ["La", "Fa", "Do","Sol"],
+            reponseCorrecte: "La"
+        },
       ],
       indexQuestionCourante: 0,
       score: 0,
@@ -68,7 +118,7 @@ class Quizz extends Component {
             {quizzTermine ? (
               // condition quizz termine
               <div>
-                <h1>Score final : {score}</h1>
+                <h1>Score final : {score}/10</h1>
                 <button onClick={this.recommencerQuizz}>Recommencer</button>
                 <button onClick={this.retourPageAccueil}>Retour à la page d'accueil</button>
               </div>
@@ -81,7 +131,9 @@ class Quizz extends Component {
                   gererClicReponse={this.gererClicReponse}
                 />
                 <Score score={score} />
-              </div>
+            
+              </div> 
+              //const response = await axios.get(`/api/points?amount=${points}`);
             )}
           </div>
         );
@@ -99,6 +151,9 @@ class Quizz extends Component {
   retourPageAccueil = () => {
     // redireciton
   };
+
+  
 }
+
 
 export default Quizz;
