@@ -14,7 +14,7 @@ function Page() {
         alignItems: 'center',
         flexDirection: 'column',
         minHeight: '100vh',
-        backgroundColor: primary,
+        backgroundColor: "#1E1E1E",
       }}
     >
       <Typography variant="h1" style={{color: 'white'}}>

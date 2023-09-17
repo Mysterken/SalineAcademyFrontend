@@ -14,7 +14,7 @@ async function render(pageContext) {
 
   return escapeInject`<!DOCTYPE html>
     <html lang="fr">
-      <body style="margin: 0">
+      <body style="margin: 0; background-color: #1E1E1E;">
         <div id="page-view">${viewHtml}</div>
       </body>
     </html>`
