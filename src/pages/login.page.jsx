@@ -35,7 +35,18 @@ function Page() {
     }).then(
       (response) => {
         if (response.status === 200) {
-          window.location.href = "/home"
+          toast.success('Successfully logged in', {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+
+          setTimeout(() => window.location.href = "/home", 3000)
         } else {
           toast.error(response.message, {
             position: "bottom-right",
