@@ -1,0 +1,44 @@
+.containerCardSub{
+    display: none;
+}
+
+@media only screen and (max-width: 500px){
+    .containerCardSub{
+        width: 70vw;
+        display: block;
+        border-radius: 15px;
+        margin: auto;
+        padding: 2vw;
+        height: 130px;
+        background: rgb(65,24,183);
+        background: linear-gradient(rgba(90,32,255,1) 0%, rgba(65,24,183,1) 100%);
+    }
+    .containerCardSub > p {
+        margin: 0;
+        font-size: 8px;
+    }
+    .containerFlexSub{
+        display: flex;
+        justify-content: space-between;
+    }
+    .containerFlexSub > h1{
+        font-size: 25px;
+    }
+    .titreCardSub{
+        margin: 0;
+        font-size: 14px;
+    }
+    .CTASub{
+        border-radius: 30px;
+        padding: 0;
+        border: none;
+        margin: 0;
+        height: 25px;
+        font-size: 10px;
+        width: 65px;
+    }
+    #bold{
+        font-weight: bold;
+        font-size: 12px;
+    }
+}

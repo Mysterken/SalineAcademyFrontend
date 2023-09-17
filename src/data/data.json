@@ -1,0 +1,101 @@
+{
+    "dataCardInfo": [
+        {
+            "title": "Pianiste",
+            "photoLink": "src/img/pianiste-mains.jpg",
+            "description": "Vous jouez du piano? Venez vous inscrire"
+        },
+        {
+            "title": "Guitariste",
+            "photoLink": "src/img/guitariste.jpg",
+            "description": "Vous jouez du piano? Venez vous inscrire"
+        },
+        {
+            "title": "Violoniste",
+            "photoLink": "src/img/violoniste.jpg",
+            "description": "Vous jouez du piano? Venez vous inscrire"
+        },
+        {
+            "title": "Violoncelliste",
+            "photoLink": "src/img/violoncelliste.jpg",
+            "description": "Vous jouez du piano? Venez vous inscrire"
+        }
+    ],
+    "dataVideoPlayer":[
+        {
+            "linkUrl": "https://www.youtube.com/watch?v=_WCWh0Z3ACQ&ab_channel=France3GrandEst"
+        },
+        {
+            "linkUrl": "https://www.youtube.com/watch?v=FNlASyOKORM&ab_channel=TEDxTalks"
+        },
+        {
+            "linkUrl": "https://www.youtube.com/watch?v=Z1ztrY_lxes&ab_channel=TheArtistAcademy"
+        },
+        {
+            "linkUrl": "https://www.youtube.com/watch?v=TzOzVEeROS8&ab_channel=MargaritaBalanas"
+        },
+        {
+            "linkUrl": "https://www.youtube.com/watch?v=N2IBbgHCQLE&ab_channel=FondationLouisVuitton"
+        },
+        {
+            "linkUrl": "https://www.youtube.com/watch?v=13fnj9wGgw8&ab_channel=L%E2%80%99OffrandemusicaleFestival"
+        },
+        {
+            "linkUrl": "https://www.youtube.com/watch?v=mHo9wjiESvA&ab_channel=L%E2%80%99OffrandemusicaleFestival"
+        },
+        {
+            "linkUrl": "https://www.youtube.com/watch?v=cCLG2xml4no&ab_channel=L%E2%80%99OffrandemusicaleFestival"
+        }
+        
+    ],
+    "dataEnseignants":[
+        {
+            "imageEnseignant": "src/img/enseignant_1.png",
+            "name": "Ning Feng"
+        },
+        {
+            "imageEnseignant": "src/img/enseignant_2.png",
+            "name":  "Miriam Fried"
+        },
+        {
+            "imageEnseignant": "src/img/enseignant_3.png",
+            "name":  "Marc Coppey"
+        },
+        {
+            "imageEnseignant": "src/img/enseignant_4.png",
+            "name":  "Antoine Palloc"
+        },
+        {
+            "imageEnseignant": "src/img/enseignant_5.png",
+            "name":  "Günter Pichler"
+        },
+        {
+            "imageEnseignant": "src/img/enseignant_6.png",
+            "name":  "Kim Kashkashian"
+        },
+        {
+            "imageEnseignant": "src/img/enseignant_7.png",
+            "name":  "Alexeï Ogrintchouk"
+        }
+    ],
+    "dataInformation": [
+        {
+            "title": "Blabla",
+            "date": "12/09/2023",
+            "image": "src/img/actu_photo_1.jpg",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sollicitudin enim sed odio bibendum efficitur. Quisque semper condimentum massa, vel suscipit tortor ornaresit amet."
+        },
+        {
+            "title": "Blabla",
+            "date": "12/09/2023",
+            "image": "src/img/actu_photo_2.jpg",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sollicitudin enim sed odio bibendum efficitur. Quisque semper condimentum massa, vel suscipit tortor ornaresit amet."
+        },
+        {
+            "title": "Blabla",
+            "date": "12/09/2023",
+            "image": "src/img/actu_photo_3.jpg",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sollicitudin enim sed odio bibendum efficitur. Quisque semper condimentum massa, vel suscipit tortor ornaresit amet."
+        }
+    ]
+}
