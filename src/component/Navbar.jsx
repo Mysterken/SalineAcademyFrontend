@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <AppBar position="relative" sx={{backgroundColor: "rgba(0, 0, 0, 0)", boxShadow: "none", marginTop: "16px"}}>
       <Toolbar>
-        <LogoDev sx={{fill: "black", marginRight: "auto"}}/>
+        <LogoDev sx={{fill: "white", marginRight: "auto"}}/>
         <Box p="16px 32px" style={{
           display: "flex",
           gap: "48px",
@@ -43,7 +43,7 @@ export default function Navbar() {
           </Box>
         </Box>
         <a href="/account" style={{marginLeft: "auto"}}>
-          <Person sx={{fill: "black"}}/>
+          <Person sx={{fill: "white"}}/>
         </a>
       </Toolbar>
     </AppBar>
