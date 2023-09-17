@@ -3,8 +3,21 @@ import Typography from "@mui/material/Typography";
 import AppBar from "@mui/material/AppBar";
 import {Home, LogoDev, MusicNote, Person, School, Tv} from "@mui/icons-material";
 import {Box} from "@mui/material";
+import {useEffect, useState} from "react";
+import {checkLoggedIn} from "../API/user.js";
 
 export default function Navbar() {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if (checkLoggedIn()) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, []);
+
   return (
     <AppBar position="relative" sx={{backgroundColor: "rgba(0, 0, 0, 0)", boxShadow: "none", marginTop: "16px"}}>
       <Toolbar>
@@ -42,7 +55,7 @@ export default function Navbar() {
             </Typography>
           </Box>
         </Box>
-        <a href="/account" style={{marginLeft: "auto"}}>
+        <a href={isLoggedIn ? "/account" : "/login"} style={{marginLeft: "auto"}}>
           <Person sx={{fill: "white"}}/>
         </a>
       </Toolbar>
