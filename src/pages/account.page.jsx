@@ -1,18 +1,58 @@
 import Navbar from "../component/Navbar.jsx";
 import {checkLoggedIn} from "../API/user.js";
 import {useEffect} from "react";
+import {Box, Button} from "@mui/material";
+import {toast, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.min.css';
 
 export {Page}
 
 function Page() {
+
   useEffect(() => {
      if (!checkLoggedIn()) {
        window.location.href = "/login"
      }
   })
+
+  function handleLogout() {
+    toast.info('Logging out...', {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
+    setTimeout(() => {
+      localStorage.removeItem("token")
+      window.location.href = "/home"
+    }, 3000)
+  }
+
   return (
     <>
       <Navbar/>
+      <Box sx={{ display: "flex" }}>
+        <Button onClick={handleLogout} sx={{ m: "50px auto" }}>
+          Logout
+        </Button>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </Box>
     </>
   )
 }
