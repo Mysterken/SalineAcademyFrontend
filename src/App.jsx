@@ -1,23 +1,15 @@
 import { useState } from 'react'
-import './App.css'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './Home.jsx';
-
-
+// import "./decouvrir.css"
+import Container from "./components/Container/";
+import { Level } from "./components/Level";
 
 function App() {
-  
-  const [count, setCount] = useState(0)
 
   return (
-
     <>
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-        </Routes>
-      </Router>
-
+      <Container />
+      <Level/>
+      <useState/>
     </>
   )
 }
