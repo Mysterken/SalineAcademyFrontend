@@ -19,7 +19,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <AppBar position="relative" sx={{backgroundColor: "rgba(0, 0, 0, 0)", boxShadow: "none", marginTop: "16px"}}>
+    <AppBar position="relative" sx={{backgroundColor: "rgba(0, 0, 0, 0)", boxShadow: "none", m: "16px 0"}}>
       <Toolbar>
         <LogoDev sx={{fill: "white", marginRight: "auto"}}/>
         <Box p="16px 32px" style={{
