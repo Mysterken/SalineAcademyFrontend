@@ -4,8 +4,6 @@ import iconLogin from '../img/icon-login.png';
 import '../Header.css';
 
 function Header() {
-    const [count, setCount] = useState(0)
-
     return (
       <>
         <header className='hero'>
@@ -15,12 +13,12 @@ function Header() {
                 </div>
                 <nav>
                     <ul>
-                        <a href="#"><li>Watch</li></a>
-                        <a href="#"><li>Listen</li></a>
-                        <a href="#"><li>Learn</li></a>
+                        <a href="/watch"><li>Watch</li></a>
+                        <a href="/listen"><li>Listen</li></a>
+                        <a href="/decouvrir"><li>Learn</li></a>
                     </ul>
                 </nav>
-                <div className='container_login'>
+                <div onClick={() => window.location.href = "/login"} className='container_login'>
                     <img src={iconLogin} alt='Connexion au profil'></img>
                 </div>
             </div>
