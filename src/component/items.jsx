@@ -72,11 +72,6 @@ export const items = [
       name: "Aldo",
       category: "Clarinette",
       tag: "recent"
-    },
-    {
-      name: "Aldo",
-      category: "Hautbois",
-      tag: "populaire"
-    },
+    }
   ];
   

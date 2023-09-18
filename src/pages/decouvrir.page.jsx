@@ -1,17 +1,46 @@
 import React, { useEffect, useState } from "react";
 import { items } from '../component/items.jsx';
 import "../style/decouvrir.css"
+import { getMasterclasses } from "../API/masterclass.js"
 
 export { Page }
 
 function Page() {
-
     const [selectedFilters, setSelectedFilters] = useState([]);
-    const [filteredItems, setFilteredItems] = useState(items);
+    const [masterclasses, setMasterclasses] = useState(null);
+    const [filteredItems, setFilteredItems] = useState([]);
 
-    let filters = ["Violon", "Piano", "Voix", "Flute"];
+// amélioration possible avec une itération sur les tags pour choisir.
+    useEffect(() => {
+        getMasterclasses()
+            .then((masterclass) => {
+                let save = masterclass.map((element)=>{
+                    return { name:element.title,
+                            category: element.tags[0]?.name,
+                            tag: null
+                    }
+                })      
+                    setMasterclasses(save)
+                    setFilteredItems(save)
+            })
+            .catch((error) => console.error(error))
+    }, [])
+    
+    if (masterclasses) {
+  
+        console.log(typeof masterclasses);
+        console.log(masterclasses);
+        console.log(typeof items);
+        console.log("items",items);
+    }
+
+
+
+    let filters = ['Piano','Violin','Guitar','Flute','Saxophone','Trumpet','Clarinet','Cello','Harp','Trombone',
+        'Drums','Bass Guitar','Oboe','Accordion','Ukulele','Banjo','Mandolin','Harmonica','Tuba','Viola'];
 
     const handleFilterButtonClick = (selectedCategory) => {
+        if (!selectedCategory) return
         if (selectedFilters.includes(selectedCategory)) {
             let filters = selectedFilters.filter((el) => el !== selectedCategory);
             setSelectedFilters(filters);
@@ -27,12 +56,17 @@ function Page() {
     const filterItems = () => {
         if (selectedFilters.length > 0) {
             let tempItems = selectedFilters.map((selectedCategory) => {
-                let temp = items.filter((item) => item.category === selectedCategory);
+                let temp = masterclasses.filter((item) => item.category === selectedCategory);
                 return temp;
             });
             setFilteredItems(tempItems.flat());
         } else {
-            setFilteredItems([...items]);
+            console.log("AAAAAAAAAA",masterclasses)
+            // logic gate en prévisualisation
+            if(!masterclasses){
+                return []
+            }
+            setFilteredItems(masterclasses);
         }
     };
 
