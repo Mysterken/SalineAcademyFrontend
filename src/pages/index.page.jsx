@@ -19,7 +19,7 @@ function Page() {
 
   useEffect(() => {
     // import de la base de donnée
-    fetch('https://localhost/api/lessons')
+    fetch('/api/lessons')
       .then(reponse => reponse.json())
       .then(data => {
         const getVideosUrl = data['hydra:member'].map(lesson => lesson.videoUrl);
