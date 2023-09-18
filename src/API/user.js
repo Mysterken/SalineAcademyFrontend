@@ -28,7 +28,7 @@ export async function register(data) {
   if (!validateData(writeData, data)) return responseInvalidData;
 
   const res = await postData("/api/register", data);
-  if (res.status === 201) {
+  if (res.status === 201 || res.status === "success") {
     return res.data;
   }
   return res;
@@ -43,7 +43,10 @@ export async function login(data) {
   const res = await postData("/api/login_check", data);
   if (res.status === 200) {
     localStorage.setItem("token", res.data.token);
-    return res.data;
+    return {
+      status: 200,
+      message: "Successfully logged in"
+    };
   }
   return res;
 }
@@ -107,4 +110,13 @@ export async function patchUser(id, data) {
     return res.data;
   }
   return res;
+}
+
+export function checkLoggedIn() {
+  const token = localStorage.getItem("token");
+  if (token) {
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    return payload.roles.includes("ROLE_USER");
+  }
+  return false
 }

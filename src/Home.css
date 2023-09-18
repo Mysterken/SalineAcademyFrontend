@@ -1,0 +1,196 @@
+.containerExpertise{
+    height: 60vh;
+    display: flex;
+    background-color: white;
+    padding: 100px 0;
+}
+.containerImageExpertise{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.containerImageExpertise > img{
+    width: 70%;
+    justify-content: center;
+    display: block;
+    margin: auto;
+}
+.containerParagraphe{
+    margin: 17vh 0;
+    width: 50%;
+}
+.titreExpertise{
+    text-align: center;
+    margin: 0 0 40px 0;
+}
+.containerParagraphe > .paragrapheExpertise, .linkExpertise{
+    display: block;
+    margin: auto;
+}
+.containerParagraphe > .titreExpertise, .paragrapheExpertise, .linkExpertise{
+    color: black;
+    vertical-align: middle;
+}
+.linkExpertise{ 
+    text-decoration: underline;
+    text-align: center;
+    margin: 40px 0 0 0;
+}
+.containerVideos{
+    display: flex;
+    justify-content: space-between;
+}
+.paragrapheExpertise{
+    width: 70%;
+}
+.containerTitreSeeAll{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+.containerTitreSeeAll > h3 {
+    font-size: 30px;
+}
+.containerTitreSeeAll > a {
+    color: #5B26F0;
+    text-decoration: none;
+}
+.containerBlockVideos{
+    margin: 50px 5vw;
+}
+.containerTrends{
+    margin: 50px 0 50px 5vw;
+}
+.containerTrends > h3 {
+    font-size: 30px;
+}
+.containerVideosTrends{
+    display: flex;
+    overflow: hidden;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    justify-content: space-between;
+}
+.containerVideosTrends > * {
+    flex: 0 0 320px;
+    margin-right: 20px;
+}
+.containerVideosTrends:last-child{
+    margin: 0;
+}
+.containerEnseignants{
+    padding: 0 5vw;
+}
+.titreEnseignants{
+    font-size: 30px;
+}
+.sectionCards{
+    width: 100vw;
+    margin: 160px 0 0 0; 
+}
+.containerCards{
+    display: flex; 
+}
+.containerCards > * {
+    cursor: pointer;
+}
+.containerArrow{
+    width: 100%;
+}
+.rond{
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    background-color:  #5B26F0;
+    display: block;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.arrowLeft{
+    width: 4px;
+    height: 20px;
+    background-color: #fff;
+    transform: rotate(-45deg);
+    border-radius: 20px;
+    margin: 5px 8px 0 0;
+}
+.arrowRight{
+    width: 4px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    transform: rotate(45deg);
+    margin-top: 5px;
+}
+.reverseRight{
+    transform: rotate(-45deg);
+    margin-top: 0;
+    cursor: pointer;
+
+}
+.reverseLeft{
+    transform: rotate(45deg);
+    cursor: pointer;
+    margin: 0 8px 0 0;
+}
+.containerInformation{
+    padding: 30px 5vw;
+}
+.titreInformation{
+    font-size: 30px;
+}
+.containerCards{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: content-box;
+}
+.containerCardsProf{
+    display: flex;
+    height: 30vh;
+}
+.containerCardsProf > *{
+    margin: 0 20px;
+}
+#choix{
+    display: none;
+}
+#choixParagraphe{
+    display: none;
+}
+
+@media only screen and (max-width: 500px){
+    .containerExpertise{
+        display: none;
+    }
+    /* Section CardsMetiers */
+    .sectionCards{
+        width: 100vw;
+    }
+    #choix{
+        display: block;
+        font-size: 30px;
+    }
+    #choixParagraphe{
+        display: block;
+    }
+    .containerCards{
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    /* .containerCards:nth-child(3), .containerCards:nth-child(4){
+        display: none;
+    } */
+    .containerArrow{
+        display: none;
+    }
+
+    /* Container Cards Enseignants */ 
+
+    .containerCardsProf{
+        flex-wrap: wrap;
+    }
+}

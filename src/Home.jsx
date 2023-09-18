@@ -1,88 +1,85 @@
 import { useState, useEffect } from 'react'
-import Header from '../Components/Header.jsx'
-import '../style/index.css';
-import Orchestre from "../img/Saline-royale-Academy-orchestre.jpeg";
-import '../Home.css';
-import VideoPlayer from '../Components/VideoPlayer.jsx';
-import CardMetier from '../Components/CardMetier.jsx';
-import Footer from '../Components/Footer.jsx';
-import CardInformation from '../Components/CardInformation.jsx';
-import CardEnseignants from '../Components/CardEnseignants.jsx'
-import CardSub from '../Components/CardSub.jsx';
+import Header from './Components/Header.jsx'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from "react";
+import Orchestre from "./img/Saline-royale-Academy-orchestre.jpeg";
+import './Home.css';
+import VideoPlayer from './Components/VideoPlayer.jsx';
+import CardMetier from './Components/CardMetier.jsx';
+import Footer from './Components/Footer.jsx';
+import CardInformation from './Components/CardInformation.jsx';
+import CardEnseignants from './Components/CardEnseignants.jsx'
+import CardSub from './Components/CardSub.jsx';
 
-export {Page}
 
-function Page() {
+function Home() {
 
   const [dataJson, setDataJson] = useState(null);
   const [getVideosUrl, setGetVideosUrl] = useState([]);
 
-  useEffect(() => {
-    // import de la base de donnée
-    fetch('/api/lessons')
-      .then(reponse => reponse.json())
-      .then(data => {
-        const getVideosUrl = data['hydra:member'].map(lesson => lesson.videoUrl);
-        setGetVideosUrl(getVideosUrl);
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }, []);
+  // import de la base de donnée 
+  fetch('https://localhost/api/lessons')
+    .then(reponse => reponse.json())
+    .then(data => {
+      const getVideosUrl = data['hydra:member'].map(lesson => lesson.videoUrl);
+      setGetVideosUrl(getVideosUrl);
+    })
+    .catch(error => {
+      console.log(error)
+    })
 
+    // import des de data.json
+    useEffect(()=> {
+      fetch('../src/data/data.json')
+        .then((reponse) =>{
+          if (!reponse.ok){
+            throw new Error("Nous n'avons pas pu importer vos datas");
+          }
+          return reponse.json();
+        })
+        .then((data) => {
+          setDataJson(data);
+        })
+        .catch((error)=> {
+          console.error("Nous rencontrons un problème avec la base de donnée", error)
+        });
+    }, []);
+  
+    const [hide, setHide] = useState(false);
+    const [rotate, setRotate] = useState(true);
 
-  // import des de data.json
-  useEffect(()=> {
-    fetch('../src/data/data.json')
-      .then((reponse) =>{
-        if (!reponse.ok){
-          throw new Error("Nous n'avons pas pu importer vos datas");
-        }
-        return reponse.json();
-      })
-      .then((data) => {
-        setDataJson(data);
-      })
-      .catch((error)=> {
-        console.error("Nous rencontrons un problème avec la base de donnée", error)
-      });
-  }, []);
+    const dataCardMetier = dataJson ? dataJson.dataCardInfo :[];
 
-  const [hide, setHide] = useState(false);
-  const [rotate, setRotate] = useState(true);
+    const dataVideoPlayer = dataJson ? dataJson.dataVideoPlayer.slice() :[]; // crée une copie superficielle de la constante
 
-  const dataCardMetier = dataJson ? dataJson.dataCardInfo :[];
+    const dataEnseignants = dataJson ? dataJson.dataEnseignants :[];
 
-  const dataVideoPlayer = dataJson ? dataJson.dataVideoPlayer.slice() :[]; // crée une copie superficielle de la constante
+    const dataActu = dataJson ? dataJson.dataInformation : [];
 
-  const dataEnseignants = dataJson ? dataJson.dataEnseignants :[];
-
-  const dataActu = dataJson ? dataJson.dataInformation : [];
-
-  function randomArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+    function randomArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
     }
-    return array;
-  }
-  randomArray(dataVideoPlayer);
-
-
-  return (
-    <>
-      <Header/>
-      {dataJson ? (
-        <>
-          <section className='containerExpertise'>
-            <div className='containerImageExpertise'>
-              <img src={Orchestre} alt="Orchestre Saline Royale Academy"></img>
-            </div>
-            <div className='containerParagraphe'>
-              <h2 className='titreExpertise'>Notre expertise</h2>
-              <p className='paragrapheExpertise'>Bienvenue à Saline Royal Academy, l'incarnation même de l'excellence dans le domaine de la musique. Notre institution se distingue comme une référence incontestée pour l'apprentissage, l'innovation et la performance en musique. Notre renommée n'est pas simplement le fruit du hasard, mais le résultat d'un engagement profond et d'une passion indéfectible pour l'art musical, qui a été cultivée au fil des décennies.</p>
-              <a href="#" className='linkExpertise'>En savoir plus</a>
-            </div>
+    randomArray(dataVideoPlayer);
+  
+    return (
+  
+      <>
+        <Header/>
+        {dataJson ? (
+          <>
+            <section className='containerExpertise'>
+              <div className='containerImageExpertise'>
+                  <img src={Orchestre} alt="Orchestre Saline Royale Academy"></img>
+              </div>
+              <div className='containerParagraphe'>
+                  <h2 className='titreExpertise'>Notre expertise</h2>
+                  <p className='paragrapheExpertise'>Bienvenue à Saline Royal Academy, l'incarnation même de l'excellence dans le domaine de la musique. Notre institution se distingue comme une référence incontestée pour l'apprentissage, l'innovation et la performance en musique. Notre renommée n'est pas simplement le fruit du hasard, mais le résultat d'un engagement profond et d'une passion indéfectible pour l'art musical, qui a été cultivée au fil des décennies.</p>
+                  <a href="#" className='linkExpertise'>En savoir plus</a>
+              </div>
           </section>
           <section className='containerBlockVideos'>
             <div className='containerTitreSeeAll'>
@@ -90,7 +87,7 @@ function Page() {
               <a href="#">Voir tout</a>
             </div>
             <div className='containerVideos'>
-              {getVideosUrl.slice(0, 2).map((url, index)=> (
+            {getVideosUrl.slice(0, 2).map((url, index)=> (
                 <VideoPlayer
                   key={index}
                   url={url}
@@ -184,11 +181,13 @@ function Page() {
               ))}
             </div>
           </section>
-        </>
-      ) : (
-        <p>Chargement en cours...</p>
+          </>
+        ) : (
+      <p>Chargement en cours...</p>
       )}
-      <Footer />
-    </>
-  )
-}
+        <Footer />
+      </>
+    );
+  }
+
+  export default Home;

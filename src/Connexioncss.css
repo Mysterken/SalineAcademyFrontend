@@ -1,0 +1,96 @@
+/* Connexioncss.css */
+
+body {
+    background-color: #121216;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    margin: 0;
+  }
+  
+  /* Styles pour le conteneur du formulaire */
+  div {
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  /* Styles pour le titre "CONNEXION" */
+  h2 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Styles pour le texte en dessous du titre */
+  p {
+    color: #8D8D8D;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* Styles pour les champs de formulaire */
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  input[type="tel"] {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 0.5px solid #fff; 
+    background: transparent; 
+  }
+  
+  /* Styles pour les boutons */
+  button {
+    width: 63%; 
+    padding: 10px;
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button.login-button {
+    background-color: #5B26F0 !important; 
+    color: #fff;
+    margin-top: 50px; 
+  }
+
+button.google-button {
+    background-color: #121216 !important; 
+    color: #fff;
+    border-color: #5B26F0;
+    border: 1px solid #5B26F0;
+  }
+
+.cliquezici {
+margin-bottom: 40px; 
+margin-top: -10px;
+ }
+
+  button:hover {
+    background-color: #1565C0;
+  }
+  
+  /* Styles pour la zone des boutons */
+  .button-container {
+    display: flex;
+    flex-direction: column; /* Boutons en colonne */
+  }
+  
+ /* Styles pour les boutons "Cliquez ici" sur les écrans plus petits */
+ @media (max-width: 768px) {
+    .cliquezici {
+      margin-bottom: 50px;
+      margin-top: -10px;
+    }
+  
+    body {
+        font-size: 0.8em; /* Taille téléponne */
+    }
+    }
+  
