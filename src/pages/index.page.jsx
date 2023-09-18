@@ -1,112 +1,193 @@
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import {createTheme, ThemeProvider} from '@mui/material/styles';
-import Copyright from "../component/Copyright.jsx";
-import Navbar from "../component/Navbar.jsx";
+import { useState, useEffect } from 'react'
+import Header from '../Components/Header.jsx'
+import '../style/index.css';
+import Orchestre from "../img/Saline-royale-Academy-orchestre.jpeg";
+import '../Home.css';
+import VideoPlayer from '../Components/VideoPlayer.jsx';
+import CardMetier from '../Components/CardMetier.jsx';
+import Footer from '../Components/Footer.jsx';
+import CardInformation from '../Components/CardInformation.jsx';
+import CardEnseignants from '../Components/CardEnseignants.jsx'
+import CardSub from '../Components/CardSub.jsx';
 
 export {Page}
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-const defaultTheme = createTheme();
-
 function Page() {
+  
+  const [dataJson, setDataJson] = useState(null);
+  const [getVideosUrl, setGetVideosUrl] = useState([]);
+
+  // import de la base de donnée 
+  useEffect(() =>{
+  fetch('https://localhost/api/lessons')
+    .then(reponse => reponse.json())
+    .then(data => {
+      const getVideosUrl = data['hydra:member'].map(lesson => lesson.videoUrl);
+      setGetVideosUrl(getVideosUrl);
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  });
+
+    // import des données de data.json
+    useEffect(()=> {
+      fetch('../src/data/data.json')
+        .then((reponse) =>{
+          if (!reponse.ok){
+            throw new Error("Nous n'avons pas pu importer vos datas");
+          }
+          return reponse.json();
+        })
+        .then((data) => {
+          setDataJson(data);
+        })
+        .catch((error)=> {
+          console.error("Nous rencontrons un problème avec la base de donnée", error)
+        });
+    }, []);
+  
+    const [hide, setHide] = useState(false);
+    const [rotate, setRotate] = useState(true);
+
+    const dataCardMetier = dataJson ? dataJson.dataCardInfo :[];
+
+    const dataVideoPlayer = dataJson ? dataJson.dataVideoPlayer.slice() :[]; // crée une copie superficielle de la constante
+
+    const dataEnseignants = dataJson ? dataJson.dataEnseignants :[];
+
+    const dataActu = dataJson ? dataJson.dataInformation : [];
+
+    function randomArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+    randomArray(dataVideoPlayer);
+
+
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline/>
-      <Navbar/>
-      <main>
-        {/* Hero unit */}
-        <Box
-          sx={{
-            pt: 8,
-            pb: 6,
-          }}
-        >
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              gutterBottom
-            >
-              Album layout
-            </Typography>
-            <Typography variant="h5" align="center" paragraph>
-              Something short and leading about the collection below—its contents,
-              the creator, etc. Make it short and sweet, but not too short so folks
-              don&apos;t simply skip over it entirely.
-            </Typography>
-            <Stack
-              sx={{pt: 4}}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
-            </Stack>
-          </Container>
-        </Box>
-        <Container sx={{py: 8}} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{height: '100%', display: 'flex', flexDirection: 'column'}}
-                >
-                  <CardMedia
-                    component="div"
-                    sx={{
-                      // 16:9
-                      pt: '56.25%',
-                    }}
-                    image="https://source.unsplash.com/random?wallpapers"
-                  />
-                  <CardContent sx={{flexGrow: 1}}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the
-                      content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small">View</Button>
-                    <Button size="small">Edit</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </main>
-      {/* Footer */}
-      <Box sx={{p: 6}} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          component="p"
-        >
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright sx={{color: "white"}}/>
-      </Box>
-      {/* End footer */}
-    </ThemeProvider>
-  );
+    <>
+        <Header/>
+        {dataJson ? (
+          <>
+            <section className='containerExpertise'>
+              <div className='containerImageExpertise'>
+                  <img src={Orchestre} alt="Orchestre Saline Royale Academy"></img>
+              </div>
+              <div className='containerParagraphe'>
+                  <h2 className='titreExpertise'>Notre expertise</h2>
+                  <p className='paragrapheExpertise'>Bienvenue à Saline Royal Academy, l'incarnation même de l'excellence dans le domaine de la musique. Notre institution se distingue comme une référence incontestée pour l'apprentissage, l'innovation et la performance en musique. Notre renommée n'est pas simplement le fruit du hasard, mais le résultat d'un engagement profond et d'une passion indéfectible pour l'art musical, qui a été cultivée au fil des décennies.</p>
+                  <a href="#" className='linkExpertise'>En savoir plus</a>
+              </div>
+          </section>
+          <section className='containerBlockVideos'>
+            <div className='containerTitreSeeAll'>
+              <h3>Live</h3>
+              <a href="#">Voir tout</a>
+            </div>
+            <div className='containerVideos'>
+            {getVideosUrl.slice(0, 2).map((url, index)=> (
+                <VideoPlayer
+                  key={index}
+                  url={url}
+                />
+              ))}
+            </div>
+          </section>
+          <section className="sectionCards">
+            <h3 id="choix">Choisis ton instrument</h3>
+            <p id="choixParagraphe">Pellentesque auctor et purus ut tincidunt. Praesent quis mi non lacus cursus pretium nec id orci. Nullam ut turpis massa.</p>
+            <div className='containerCards'>
+              {dataCardMetier.map((item, index)=> (
+                <CardMetier
+                  key={index}
+                  images={item.photoLink}
+                  name={item.title}
+                  desc={item.description}
+                />
+              ))}
+            </div>
+            {hide && (
+              <>
+                <div className='containerCards' id='firstColumn'>
+                  {dataCardMetier.map((item, index)=> (
+                    <CardMetier
+                      key={index}
+                      images={item.photoLink}
+                      name={item.title}
+                      desc={item.description}
+                    />
+                  ))}
+                </div>
+                <div className='containerCards' id='secondColumn'>
+                  {dataCardMetier.map((item, index)=> (
+                    <CardMetier
+                      key={index}
+                      images={item.photoLink}
+                      name={item.title}
+                      desc={item.description}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+            <div onClick={() => setHide(!hide)} className='containerArrow'>
+              <div onClick={() => setRotate(!rotate)} className="rond">
+                <div className={`arrowLeft ${rotate ? '' : 'reverseLeft'}`}></div>
+                <div className={`arrowRight ${rotate ? '' : 'reverseRight'}`}></div>
+              </div>
+            </div>
+          </section>
+          <section className='containerCardsSub'>
+            <CardSub/>
+          </section>
+          <section className="containerTrends">
+            <h3>Trends</h3>
+            <div className="containerVideosTrends">
+              {getVideosUrl.slice(0, 10).map((url, index)=> (
+                <VideoPlayer
+                  key={index}
+                  url={url}
+                  width='320px'
+                  height='180px'
+                />
+              ))}
+            </div>
+          </section>
+          <section className='containerEnseignants'>
+            <h3 className='titreEnseignants'>Nos enseignants</h3>
+            <div className='containerCardsProf'>
+              {dataEnseignants.map((item, index)=> (
+                <CardEnseignants
+                  key={index}
+                  images={item.imageEnseignant}
+                  name={item.name}
+                />
+              ))}
+            </div>
+          </section>
+          <section className='containerInformation'>
+            <h3 className="titreInformation">Informations</h3>
+            <div className='containerCards'>
+              {dataActu.map((item, index)=> (
+                <CardInformation
+                  key={index}
+                  titre={item.title}
+                  date={item.date}
+                  image={item.image}
+                  description={item.description}
+                />
+              ))}
+            </div>
+          </section>
+          </>
+        ) : (
+      <p>Chargement en cours...</p>
+      )}
+        <Footer />
+      </>
+  )
 }
